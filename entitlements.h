@@ -21,7 +21,7 @@ CFTypeRef SecTaskCopyValueForEntitlement(SecTaskRef task,
                                          CFErrorRef *error);
 
 static int has_entitlement(const char *entitlement) {
-  if (!entitlement) return 0;
+  if (!entitlement && !*entitlement) return 0;
 
   int ret = 0;
   SecTaskRef task = SecTaskCreateFromSelf(kCFAllocatorDefault);
