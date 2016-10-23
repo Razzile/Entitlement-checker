@@ -4,6 +4,8 @@ Checks if the current process has a specified entitlement at runtime on darwin s
 Usage:
 
 ```c
+#include "entitlements.h"
+
 bool has_tfp = has_entitlement("task_for_pid-allow");
 // do something with has_tfp
 ```
