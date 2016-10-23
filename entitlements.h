@@ -22,7 +22,7 @@ CFTypeRef SecTaskCopyValueForEntitlement(SecTaskRef task,
 
 static int has_entitlement(const char *entitlement) {
   if (!entitlement) return 0;
-  
+
   int ret = 0;
   SecTaskRef task = SecTaskCreateFromSelf(kCFAllocatorDefault);
 
@@ -33,8 +33,9 @@ static int has_entitlement(const char *entitlement) {
 
   ret = !!tfp;
 
-  CFRelease(tfp);
+  CFRelease(task);
   CFRelease(str);
+  CFRelease(tfp);
 
   return ret;
 }
